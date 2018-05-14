@@ -4,6 +4,7 @@
 	<meta charset="utf-8"/>
 	<title>Test for WebDemo</title>
 	<link  href="../dep/domlogger.css" rel="stylesheet" type="text/css" />
+	<link  href="../src/webdemo.css" rel="stylesheet" type="text/css" />
 	<script src="../dep/syn.js"></script>
 	<script src="../dep/domlogger.js"></script>
 	<script src="../src/webdemo.js"></script>
@@ -43,11 +44,10 @@
 		</form>
 	</div>
 
-	<script src="../src/syn.js"></script>
 	<script type="text/javascript">
 		window.addEventListener("load", function() {
 		  window.demo = new WebDemo("First demonstration of the app");
-		  demo.cursorSpeed(600);
+		  demo.cursorSpeed(1500);
 		  demo.inform("Writing user's name");
 		  demo.mouse("[name='name']").click().type("Developer");
 		  demo.inform("Writing user's surname");

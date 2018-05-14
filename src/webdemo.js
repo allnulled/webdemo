@@ -103,7 +103,8 @@ function WebDemo(title = "{No title provided}") {
    * @description This object can log messages that one can see in the same page (without the need of opening the console).
    */
   demo._.logger = new DOMLogger().show();
-  demo._.logger.registerMessageType
+  demo._.logger.registerMessageType("demoOperation", "webdemo-operation", "webdemo-operation", undefined, "WD-OPERATION");
+  demo._.logger.registerMessageType("demoInfo", "webdemo-info", "webdemo-info", undefined, "WD-INFO");
 
   /*
    * ----
@@ -172,7 +173,9 @@ function WebDemo(title = "{No title provided}") {
       }
       var currTask = demo._.tasks.shift();
       var op = currTask[0];
-      demo._.logger.webDemoOperation(op);
+      if(op !== "inform") {
+	      demo._.logger.demoOperation(op + (("2" in currTask) ? (": " + currTask[2]) : ""));
+	    }
       currTask[1].call(demo, next);
     };
     next();
@@ -190,13 +193,13 @@ function WebDemo(title = "{No title provided}") {
    * @returns `{WebDemo}`  
    * @description Logs a message by the DOMLogger instance.
    */
-  demo.inform = function(message, mode="log") {
+  demo.inform = function(message, mode="demoInfo") {
     demo._.tasks.push(["inform", function(done) {
       // @TODO: message in a beautiful dialog
       // @TODO: timeOpt as timeout to close the dialog
-      demo._.webDemoInform[mode](message);
+      demo._.logger[mode](message);
       done();
-    }]);
+    }, message]);
     return demo;
   };
 
@@ -257,7 +260,7 @@ function WebDemo(title = "{No title provided}") {
       demo._.cursor.style.left = point.left + "px";
       demo._.cursor.style.top = point.top + "px";
       setTimeout(done, demo._.speed);
-    }]);
+    }, elementReference]);
     return demo;
   };
 
@@ -295,7 +298,7 @@ function WebDemo(title = "{No title provided}") {
     demo._.tasks.push(["type", function(done) {
       // @TODO: type the text provided into the subject
       utils.typeText(demo._.subject, text, done, demo);
-    }]);
+    }, text]);
     return demo;
   };
   
