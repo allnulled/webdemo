@@ -3,6 +3,10 @@
 
 # webdemo
 
+
+![](https://img.shields.io/badge/webdemo-v1.0.0-green.svg) ![](https://img.shields.io/badge/stable-70%25-orange.svg)
+
+
 Web-based mouse and keyboard automation tool.
 
 ## 1. Installation
@@ -277,9 +281,9 @@ asynchronous function that is passed as first parameter.
 
  
 
+## 4. Conclusion
 
-
-
+Simple library to simulate user's behaviour on a webpage.
 
 
 

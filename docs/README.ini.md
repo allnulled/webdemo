@@ -2,6 +2,10 @@
  *
  * # webdemo
  * 
+ * 
+ * ![](https://img.shields.io/badge/webdemo-v1.0.0-green.svg) ![](https://img.shields.io/badge/stable-70%25-orange.svg)
+ * 
+ * 
  * Web-based mouse and keyboard automation tool.
  * 
  * ## 1. Installation
