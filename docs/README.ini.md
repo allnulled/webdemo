@@ -8,13 +8,15 @@
  * 
  * Web-based mouse and keyboard automation tool.
  * 
+ *  
+ * 
  * ## 1. Installation
  * 
- * #### 1.1. Download the WebDemo module:
+ * #### 1. Download the WebDemo module:
  * 
  * `~$ npm install --save webdemo`
  * 
- * #### 1.2. Include all the dependencies in your HTML:
+ * #### 2. Include all the dependencies in your HTML:
  * 
  * ```html
  * <link  href="node_modules/webdemo/dep/domlogger.css" rel="stylesheet" type="text/css" />
