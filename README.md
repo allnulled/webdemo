@@ -64,24 +64,7 @@ And the demo will start.
 
  
 
-## 3. Requirements
-
-Nothing is required externally. 
-
-But some libraries have been included in the source code:
-
-
-
-
-
-
-
-
-
-
- 
-
-## 4. API Reference
+## 3. API Reference
 
 
 
