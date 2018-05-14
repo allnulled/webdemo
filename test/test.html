@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Test for WebDemo</title>
+	<link  href="../dep/domlogger.css" rel="stylesheet" type="text/css" />
+	<script src="../dep/syn.js"></script>
+	<script src="../dep/domlogger.js"></script>
+	<script src="../src/webdemo.js"></script>
+</head>
+<body>
+
+	<h1>Title</h1>
+	<h2>Subtitle</h2>
+	<div style="height: 1px"></div>
+	<div>
+		<form>
+			<table>
+				<tr>
+					<td>Name:</td>
+					<td>
+						<input type="text" name="name" onclick="this.style.border = '2px solid red'" />
+					</td>
+				</tr>
+				<tr>
+					<td>Surname:</td>
+					<td>
+						<input type="text" name="surname" onclick="this.style.border = '2px solid orange'" />
+					</td>
+				</tr>
+				<tr>
+					<td>Age:</td>
+					<td>
+						<input type="text" name="age" onclick="this.style.border = '2px solid green'" />
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<button type="button" name="submit" onclick="this.style.border = '2px solid purple'; console.log('Submiting form')">Submit</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+	<script src="../src/syn.js"></script>
+	<script type="text/javascript">
+		window.addEventListener("load", function() {
+		  window.demo = new WebDemo("First demonstration of the app");
+		  demo.cursorSpeed(600);
+		  demo.inform("Writing user's name");
+		  demo.mouse("[name='name']").click().type("Developer");
+		  demo.inform("Writing user's surname");
+		  demo.mouse("[name='surname']").click().type("This is a secret");
+		  demo.inform("Writing user's age");
+		  demo.mouse("[name='age']").click().type("None of your business");
+		  demo.inform("Submiting form");
+		  demo.mouse("[name='submit']").click();
+		  demo.start();
+		});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "name": "webdemo",
+  "version": "1.0.0",
+  "description": "Live web demonstrations in the browser.",
+  "main": "src/webdemo.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "docs-listen": "node dev/onchanges-recompose-readme.js",
+    "docs": "node_modules/.bin/javadoc -i docs/README.ini.md src/webdemo.js docs/README.end.md -f markdown -o README.md",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "domlogger": "^1.0.0",
+    "scroll-into-view": "^1.9.3",
+    "syn": "^0.13.0",
+    "ui-logger-dom": "^1.0.0"
+  },
+  "devDependencies": {
+    "chokidar": "2.0.3",
+    "execute-command-sync": "1.0.2",
+    "javadoc": "1.0.3"
+  }
+}

@@ -7,23 +7,28 @@ Web-based mouse and keyboard automation tool.
 
 ## 1. Installation
 
+#### 1.1. Download the WebDemo module:
+
 `~$ npm install --save webdemo`
+
+#### 1.2. Include all the dependencies in your HTML:
+
+```html
+<link  href="node_modules/webdemo/dep/domlogger.css" rel="stylesheet" type="text/css" />
+<script src="node_modules/webdemo/dep/syn.js"></script>
+<script src="node_modules/webdemo/dep/domlogger.js"></script>
+<script src="node_modules/webdemo/src/webdemo.js"></script>
+```
 
 ## 2. Usage
 
-##### 1. Include the js file in your *.html file:
-
-```html
-<script src="node_modules/webdemo/webdemo.js"></script>
-```
-
-##### 2. Create a new webdemo instance:
+##### 1. Create a new webdemo instance:
 
 ```js
 const demo = new WebDemo("Name of this demo");
 ```
 
-##### 3. Add tasks to the demo:
+##### 2. Add tasks to the demo:
 
 ```js
 demo.speed(600);
@@ -37,10 +42,12 @@ demo.inform("Submiting form");
 demo.mouse("[name='submit']").click();
 ```
 
-##### 4. Run the demo:
+##### 3. Run the demo:
 
 ```js
-demo.start();
+demo.start(function() {
+ // once finished all the tasks...
+});
 ```
 
 And the demo will start.
@@ -51,7 +58,7 @@ And the demo will start.
 
  
 
-## 3. Notes
+## 3. Requirements
 
 Nothing is required externally. 
 
@@ -137,7 +144,7 @@ But some libraries have been included in the source code:
 ----
 ### webDemo._.logger
 
-**Type:** `{DOMLogger}` 
+**Type:** `{Object:DOMLogger}` 
 
 **Url:** https://www.npmjs.com/package/domlogger
 
@@ -161,35 +168,43 @@ But some libraries have been included in the source code:
  
 
 ----
-### webDemo.start()
-
-
-
-
-
- 
-
-----
-### webDemo.inform(message)
-
-**Type:** `{Function}`
-
-**Parameter:** `{String} message` Message to be shown.
-
-**Return:** `{WebDemo}`  
-
-**Description:** Shows a message by the DOMLogger instance.
-
-
-
- 
-
-----
 ### webDemo._.cursor
 
 **Type:** `{HTMLElement}`
 
 **Description:** Image of a cursor, that will move over the screen, simulating the click and drag'n'drop events.
+
+
+
+ 
+
+----
+### webDemo.start()
+
+**Type:** `{Function}`
+
+**Parameter:** `{Function} onFinish` Optional. Callback for when the demo is over.
+
+**Returns:** `{WebDemo}`
+
+**Description:** Starts the demo.
+
+
+
+ 
+
+----
+### webDemo.inform(message, mode="log")
+
+**Type:** `{Function}`
+
+**Parameter:** `{String} message` Message to be shown.
+
+**Parameter:** `{String} mode` Method to be used for the logging (relative to DOMLogger).
+
+**Returns:** `{WebDemo}`  
+
+**Description:** Logs a message by the DOMLogger instance.
 
 
 
@@ -202,7 +217,7 @@ But some libraries have been included in the source code:
 
 **Parameter:** `{HTMLElement} elementReference` Element in which to put the mouse over.
 
-**Return:** `{WebDemo}` Returns the same webDemo instance.
+**Returns:** `{WebDemo}` Returns the same webDemo instance.
 
 **Description:** Moves the mouse to put it over the center of an `{HTMLElement}`.
 
@@ -219,7 +234,7 @@ But some libraries have been included in the source code:
 
 **Parameter:** `{Number} speedOpt` Useless for now.
 
-**Return:** `{WebDemo}` Returns the same webDemo instance.
+**Returns:** `{WebDemo}` Returns the same webDemo instance.
 
 
 
@@ -235,8 +250,28 @@ But some libraries have been included in the source code:
 
 **Parameter:** `{Number} speedOpt` Useless for now.
 
-**Return:** `{WebDemo}` Returns the same webDemo instance.
+**Returns:** `{WebDemo}` Returns the same webDemo instance.
 
+
+
+
+ 
+
+----
+### webDemo.then(asyncFn)
+
+**Type:** `{Function}`
+
+**Parameter:** `{AsyncFunction}` Asynchronous function (it 
+means that its first parameter is the call to the next 
+asynchronous operation) that gets executed when the running
+thread dispatches it, and that is finished when the first 
+parameter that this function receives, is called.
+
+**Returns:** `{webDemo}` Returns the same webDemo instance.
+
+**Description:** Registers a new task which executes the 
+asynchronous function that is passed as first parameter.
 
 
 
@@ -251,4 +286,3 @@ But some libraries have been included in the source code:
 
 
 
-# Read this file
