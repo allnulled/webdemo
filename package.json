@@ -6,6 +6,10 @@
   "directories": {
     "test": "test"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/allnulled/webdemo.git"
+  },
   "scripts": {
     "docs-listen": "node dev/onchanges-recompose-readme.js",
     "docs": "node_modules/.bin/javadoc -i docs/README.ini.md src/webdemo.js docs/README.end.md -f markdown -o README.md",
